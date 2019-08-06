@@ -32,6 +32,7 @@ module Main where
                         putStrLn("How much ?")
                         -- get input from user
                         value <- getLine
+                        -- convertendo a entrada para um inteiro
                         let depositValue = (read :: String -> Integer) value
                         balance <- incrementBalance account depositValue
                         putStrLn("Your deposit has been made")
