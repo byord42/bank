@@ -9,28 +9,31 @@ module BankAccount
 
 import Control.Concurrent
 import Control.Monad (void)
+-- http://www.haskellforall.com/2013/07/statements-vs-expressions.html
+.
+-- the Maybe type (Haskell's version of nullable)
 
--- The task is to create the data type `BankAccount` and
--- and implement the functions below.
-
+-- An MVar t is mutable location that is either empty or contains a value of type t.
+-- constructor of data type
 data BankAccount = BankAccount { balance :: MVar (Maybe Integer) }
 
--- funcao que retorna um IO vazio
 closeAccount :: BankAccount -> IO ()
 closeAccount ba = void $ swapMVar (balance ba) Nothing
 
--- funcao que retorna o valor da variavel
 getBalance :: BankAccount -> IO (Maybe Integer)
 getBalance = readMVar . balance
 
--- retorna o valor da conta acrescido do valor passado
+-- modifyMVar_ :: MVar a -> (a -> IO a) -> IO () 
 incrementBalance :: BankAccount -> Integer -> IO (Maybe Integer)
 incrementBalance ba n = modifyMVar_ (balance ba) (return . fmap (+ n)) >> getBalance ba
 
--- retorna o valor da conta decrementado
+-- (return . fmap (+ (- n))) = function composition
+-- descendingSort = reverse . sort
+-- balance ba = accessing value of balance in the BankAccount passed in function 
 decrementBalance :: BankAccount -> Integer -> IO (Maybe Integer)
 decrementBalance ba n = modifyMVar_ (balance ba) (return . fmap (+ (- n))) >> getBalance ba
 
--- retorna um tipo de dado conta
+-- map the value 0 to MVAR balance using 
+-- fmap returns a Functor applicated to the (Just 0)
 openAccount :: IO BankAccount
 openAccount = BankAccount `fmap` newMVar (Just 0)

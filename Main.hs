@@ -21,6 +21,8 @@ module Main where
         putStrLn ("Now that we created your account you can do those actions")
     
         -- loop using recursion
+        --  but do notation is merely syntactic sugar for nested applications of (>>=), which is itself nothing more than an infix higher-order function
+        -- http://www.haskellforall.com/2013/07/statements-vs-expressions.html
         let loop = do
             -- echo back to the user
             putStrLn("1 - Deposit")
@@ -29,10 +31,10 @@ module Main where
             userInput <- getLine
             case userInput of
                 "1" -> do
+                    --nested expressions, and sequencing statements just builds larger and larger expressions
                         putStrLn("How much ?")
                         -- get input from user
                         value <- getLine
-                        -- convertendo a entrada para um inteiro
                         let depositValue = (read :: String -> Integer) value
                         balance <- incrementBalance account depositValue
                         putStrLn("Your deposit has been made")
