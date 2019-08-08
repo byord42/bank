@@ -10,7 +10,7 @@ module BankAccount
 import Control.Concurrent
 import Control.Monad (void)
 -- http://www.haskellforall.com/2013/07/statements-vs-expressions.html
-.
+
 -- the Maybe type (Haskell's version of nullable)
 
 -- An MVar t is mutable location that is either empty or contains a value of type t.
