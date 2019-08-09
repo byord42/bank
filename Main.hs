@@ -48,6 +48,7 @@ module Main where
                         let withdrawValue = (read :: String -> Integer) value
                         balance <- decrementBalance account withdrawValue
                         --putStrLn("Seu saque foi realizado. Seu saldo atual é de " ++ balance ++ " reais.")
+                        print balance
                 "3" -> do
                         balance <- getBalance account
                         --putStrln("Seu saldo atual é de " ++ balance ++ " reais. Você gostaria de fazer a projeção de rendimento para quantos dias?")
@@ -57,6 +58,7 @@ module Main where
                         rendimentoFinal :: Integer -> Integer
                         let rendimentoFinal = (balance*(rendimento^days))
                         --putStrln("Daqui a " ++ days ++ " dias o seu saldo será de " ++ rendimentoFinal ++ " reais se você não realizar nenhuma movimentação na conta.")
+                        print balance
                 "4" -> putStrLn("Até mais!")
                 
             -- putStrLn ("Hey " ++ userInput ++ ", you rock!")
