@@ -60,7 +60,8 @@ module Main where
                         let days = (read :: String -> Integer) value
                         let f1 a = b where b = (1 + 1) ^ a
                         let f2 c = d where d = c * (f1 days)
-                        putStrLn("Depois de " ++ days ++ " dias o seu valor inicial de " ++ valor ++ " viraria " ++ f2 valor ++ " !")
+                        putStrLn("Rendimento final:")
+                        print f2 valor
                         --putStrln("Você terá: " ++ balance ++ " reais.)
                         loop
                 "4" -> putStrLn("Até mais!")
