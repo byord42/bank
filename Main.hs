@@ -45,7 +45,7 @@ module Main where
                         value <- getLine
                         let withdrawValue = (read :: String -> Integer) value
                         if withdrawValue > balance
-                            then putStrLn("Você não tem saldo o suficiente. O saque não pode ser realizado.")
+                            then do putStrLn("Você não tem saldo o suficiente. O saque não pode ser realizado.")
                         else balance <- decrementBalance account witdrawValue
                              putStrLn("Seu saque foi realizado.") -- nao sei se entra no else
                         putStrLn("Seu saldo atual é de " ++balance++ " reais.")
