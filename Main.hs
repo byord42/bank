@@ -43,9 +43,7 @@ module Main where
                         print balance
                         loop
                 "2" -> do
-                        putStrLn("Quanto você quer sacar? Você pode sacar no máximo: ")
-                        balance <- getBalance
-                        print balance
+                        putStrLn("Quanto você quer sacar?")
                         value <- getLine
                         let withdrawValue = (read :: String -> Integer) value
                         balance <- decrementBalance account withdrawValue
