@@ -41,14 +41,11 @@ module Main where
                         balance <- incrementBalance account depositValue
                         putStrLn("Seu depósito foi realizado. Seu saldo atual é de " ++balance++ " reais.")
                 "2" -> do
-                        putStrLn("Quanto você quer sacar?")
+                        putStrLn("Quanto você quer sacar? Você pode sacar no máximo " ++ balance ++ " reais.")
                         value <- getLine
                         let withdrawValue = (read :: String -> Integer) value
-                        if withdrawValue > balance
-                            then do putStrLn("Você não tem saldo o suficiente. O saque não pode ser realizado.")
-                        else balance <- decrementBalance account witdrawValue
-                             putStrLn("Seu saque foi realizado.") -- nao sei se entra no else
-                        putStrLn("Seu saldo atual é de " ++balance++ " reais.")
+                        balance <- decrementBalance account withdrawValue
+                        putStrLn("Seu saque foi realizado. Seu saldo atual é de " ++balance++ " reais.")
                 "3" -> do
                         balance <- getBalance account
                         putStrln("Seu saldo atual é de " ++ balance ++ " reais. Você gostaria de fazer a projeção de rendimento para quantos dias?")
