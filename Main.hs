@@ -73,8 +73,9 @@ module Main where
             --case balance of
                 --Just a -> putStrLn $ "Your balance is :"++show a++"."
             -- quando o userInput for q ele sai do loop
-            when (userInput /= "4") loop
-        --loop  -- start the first iteration
+        when (userInput /= "4") loop
+     
+        loop  -- start the first iteration
     
     
     
