@@ -41,6 +41,7 @@ module Main where
                         balance <- incrementBalance account depositValue
                         putStrLn("Seu depósito foi realizado. Seu saldo atual é de: ")
                         print balance
+                        loop
                         --putStrLn("Seu depósito foi realizado. Seu saldo atual é de " ++ balance ++ " reais.")
                 "2" -> do
                         --putStrLn("Quanto você quer sacar? Você pode sacar no máximo " ++ balance ++ " reais.")
@@ -49,18 +50,18 @@ module Main where
                         balance <- decrementBalance account withdrawValue
                         --putStrLn("Seu saque foi realizado. Seu saldo atual é de " ++ balance ++ " reais.")
                         print balance
+                        loop
                 "3" -> do
                         balance <- getBalance account
                         --putStrln("Seu saldo atual é de " ++ balance ++ " reais. Você gostaria de fazer a projeção de rendimento para quantos dias?")
                         value <- getLine
                         let days = (read :: String -> Integer) value
-                        f1 :: Int -> Int
                         let f1 a = b where b = (1 + 2) ^ a
-                        f2 :: Int -> Int
                         let f2 c = d where d = c * (f1 days)
                         --x = (balance * ((1 + 0.02) ^days))
                         --putStrln("Daqui a " ++ days ++ " dias o seu saldo será de " ++ rendimentoFinal ++ " reais se você não realizar nenhuma movimentação na conta.")
-                        print balance
+                        print f2 balance
+                        loop
                 "4" -> putStrLn("Até mais!")
                 
             -- putStrLn ("Hey " ++ userInput ++ ", you rock!")
@@ -76,7 +77,7 @@ module Main where
             --case balance of
                 --Just a -> putStrLn $ "Your balance is :"++show a++"."
             -- quando o userInput for q ele sai do loop
-        when (userInput /= "4") loop
+        --when (userInput /= "4") loop
      
         loop  -- start the first iteration
     
