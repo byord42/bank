@@ -39,22 +39,24 @@ module Main where
                         value <- getLine
                         let depositValue = (read :: String -> Integer) value
                         balance <- incrementBalance account depositValue
-                        putStrLn("Seu depósito foi realizado. Seu saldo atual é de " ++balance++ " reais.")
+                        putStrLn("Seu depósito foi realizado. Seu saldo atual é de: ")
+                        print balance
+                        --putStrLn("Seu depósito foi realizado. Seu saldo atual é de " ++ balance ++ " reais.")
                 "2" -> do
-                        putStrLn("Quanto você quer sacar? Você pode sacar no máximo " ++ balance ++ " reais.")
+                        --putStrLn("Quanto você quer sacar? Você pode sacar no máximo " ++ balance ++ " reais.")
                         value <- getLine
                         let withdrawValue = (read :: String -> Integer) value
                         balance <- decrementBalance account withdrawValue
-                        putStrLn("Seu saque foi realizado. Seu saldo atual é de " ++balance++ " reais.")
+                        --putStrLn("Seu saque foi realizado. Seu saldo atual é de " ++ balance ++ " reais.")
                 "3" -> do
                         balance <- getBalance account
-                        putStrln("Seu saldo atual é de " ++ balance ++ " reais. Você gostaria de fazer a projeção de rendimento para quantos dias?")
+                        --putStrln("Seu saldo atual é de " ++ balance ++ " reais. Você gostaria de fazer a projeção de rendimento para quantos dias?")
                         value <- getLine
                         let days = (read :: String -> Integer) value
                         let rendimento = (\x -> 1 + x) 0.02 --lambda termo
                         rendimentoFinal :: Integer -> Integer
                         let rendimentoFinal = (balance*(rendimento^days))
-                        putStrln("Daqui a " ++ days ++ " dias o seu saldo será de " ++ rendimentoFinal ++ " reais se você não realizar nenhuma movimentação na conta.")
+                        --putStrln("Daqui a " ++ days ++ " dias o seu saldo será de " ++ rendimentoFinal ++ " reais se você não realizar nenhuma movimentação na conta.")
                 "4" -> putStrLn("Até mais!")
                 
             -- putStrLn ("Hey " ++ userInput ++ ", you rock!")
