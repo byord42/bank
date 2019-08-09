@@ -53,8 +53,8 @@ module Main where
                         putStrln("Seu saldo atual é de " ++ balance ++ " reais. Você gostaria de fazer a projeção de rendimento para quantos dias?")
                         let readDays <- getLine
                         let days = (read :: String -> Integer) readDays
-                        let rendimentoDiario = (\x -> x) 0,02
-                        rendimentoFinal :: 
+                        let rendimentoDiario = (\x -> x) 0,02 --lambda termo
+                        rendimentoFinal :: Integer -> Integer
                         let rendimentoFinal = (balance*((1 + rendimentoDiario)^days))
                         putStrln("Daqui a " ++ days ++ " dias o seu saldo será de " ++ rendimentoFinal ++ " reais se você não realizar nenhuma movimentação na conta.")
                 "q" -> putStrLn("Até mais!")
