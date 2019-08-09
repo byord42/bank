@@ -42,13 +42,13 @@ module Main where
                         putStrLn("Seu depósito foi realizado. Seu saldo atual é de: ")
                         print balance
                         loop
-                        --putStrLn("Seu depósito foi realizado. Seu saldo atual é de " ++ balance ++ " reais.")
                 "2" -> do
-                        --putStrLn("Quanto você quer sacar? Você pode sacar no máximo " ++ balance ++ " reais.")
+                        putStrLn("Quanto você quer sacar? Você pode sacar no máximo: ")
+                        print balance
                         value <- getLine
                         let withdrawValue = (read :: String -> Integer) value
                         balance <- decrementBalance account withdrawValue
-                        --putStrLn("Seu saque foi realizado. Seu saldo atual é de " ++ balance ++ " reais.")
+                        putStrLn("Seu saque foi realizado. Seu saldo atual é de: ")
                         print balance
                         loop
                 "3" -> do
@@ -60,9 +60,9 @@ module Main where
                         let days = (read :: String -> Integer) value
                         let f1 a = b where b = (1 + 1) ^ a
                         let f2 c = d where d = c * (f1 days)
-                        putStrLn("Rendimento final:")
-                        print f2 valor
-                        --putStrln("Você terá: " ++ balance ++ " reais.)
+                        let x = f2 valor
+                        putStrLn("Seu rendimento final seria de:")
+                        print x
                         loop
                 "4" -> putStrLn("Até mais!")
                 
