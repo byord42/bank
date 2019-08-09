@@ -52,13 +52,15 @@ module Main where
                         print balance
                         loop
                 "3" -> do
-                        balance <- getBalance account
-                        --putStrln("Seu saldo atual é de " ++ balance ++ " reais. Você gostaria de fazer a projeção de rendimento para quantos dias?")
+                        putStrLn("Você também pode ter uma conta poupança que rende 1% ao dia!! :-O Insira um valor que você gostaria de colocar nela para fazermos uma simulação:")
+                        value <- getLine
+                        let valor = (read :: String -> Integer) value
+                        putStrLn("Insira uma quantidade de dias que esse valor ficaria rendendo:")
                         value <- getLine
                         let days = (read :: String -> Integer) value
-                        let f1 a = b where b = (1 + 2) ^ a
-                        let f2 c = d where d = c * (f1 balance)
-                        --putStrLn("Daqui a " ++ days ++ " dias o seu saldo será de " ++ rendimentoFinal ++ " reais se você não realizar nenhuma movimentação na conta.")
+                        let f1 a = b where b = (1 + 1) ^ a
+                        let f2 c = d where d = c * (f1 days)
+                        putStrLn("Depois de " ++ days ++ " dias o seu valor inicial de " ++ valor ++ " viraria " ++ f2 valor ++ " !")
                         --putStrln("Você terá: " ++ balance ++ " reais.)
                         loop
                 "4" -> putStrLn("Até mais!")
