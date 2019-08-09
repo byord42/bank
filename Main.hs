@@ -58,9 +58,10 @@ module Main where
                         let days = (read :: String -> Integer) value
                         let f1 a = b where b = (1 + 2) ^ a
                         let f2 c = d where d = c * (f1 days)
+                        let x = f2 balance
                         --x = (balance * ((1 + 0.02) ^days))
                         --putStrln("Daqui a " ++ days ++ " dias o seu saldo será de " ++ rendimentoFinal ++ " reais se você não realizar nenhuma movimentação na conta.")
-                        print f2 balance
+                        print x
                         loop
                 "4" -> putStrLn("Até mais!")
                 
