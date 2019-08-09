@@ -55,9 +55,9 @@ module Main where
                         value <- getLine
                         let days = (read :: String -> Integer) value
                         f1 :: Int -> Int
-                        f1 a = b where b = (1 + 2) ^ a
+                        let f1 a = b where b = (1 + 2) ^ a
                         f2 :: Int -> Int
-                        f2 c = d where d = c * (f1 days)
+                        let f2 c = d where d = c * (f1 days)
                         --x = (balance * ((1 + 0.02) ^days))
                         --putStrln("Daqui a " ++ days ++ " dias o seu saldo será de " ++ rendimentoFinal ++ " reais se você não realizar nenhuma movimentação na conta.")
                         print balance
