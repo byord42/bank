@@ -43,7 +43,7 @@ module Main where
                         value <- getLine
                         let witdrawValue = (read :: String -> Integer) value
                         balance <- decrementBalance account witdrawValue
-                        putStrLn("Your witdraw has been made")
+                        putStrLn("Your withdraw has been made")
                 "q" -> putStrLn("Good Bye !")
                 
             -- putStrLn ("Hey " ++ userInput ++ ", you rock!")
