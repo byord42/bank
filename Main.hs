@@ -54,7 +54,11 @@ module Main where
                         --putStrln("Seu saldo atual é de " ++ balance ++ " reais. Você gostaria de fazer a projeção de rendimento para quantos dias?")
                         value <- getLine
                         let days = (read :: String -> Integer) value
-                        rendimentoFinal <- (balance*((1 + 0.02)^days))
+                        f1 :: Int -> Int
+                        f1 a = b where b = (1 + 2) ^ a
+                        f2 :: Int -> Int
+                        f2 c = d where d = c * (f1 days)
+                        --x = (balance * ((1 + 0.02) ^days))
                         --putStrln("Daqui a " ++ days ++ " dias o seu saldo será de " ++ rendimentoFinal ++ " reais se você não realizar nenhuma movimentação na conta.")
                         print balance
                 "4" -> putStrLn("Até mais!")
